@@ -163,7 +163,7 @@ h1 {
 
 .information {
   /* temporary */
-  width: clamp(20vw, 40vw, 40vw);
+  min-width: clamp(20vw, 40vw, 40vw);
   min-height: 100%;
   border: 1px solid var(--color-extra);
 }
@@ -206,7 +206,11 @@ h1 {
 
 @media only screen and (max-width: 768px) {
   :root {
-    font-size: 14px;
+    font-size: 12px;
+  }
+
+  .profile {
+    flex-direction: column;
   }
 }
 
