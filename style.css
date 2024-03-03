@@ -146,25 +146,40 @@ h1 {
 .profile {
   border: 3px solid var(--color-extra);
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 2rem;
+}
+
+.profile-child {
+  flex: 2;
+  flex-basis: 0;
 }
 
 .profile-card {
   flex-direction: column;
+  flex-grow: 1;
   gap: 1rem;
   text-align: center;
 }
 
 .profile-picture {
-  max-width: clamp(10rem, 100%, 15rem);
-  height: auto;
+  /* max-width: clamp(10rem, 100%, 15rem); */
+  /* height: auto; */
+  min-width: 10rem;
   border-radius: 50%;
 }
 
 .information {
+  min-width: 15rem;
+}
+
+.information div {
   /* temporary */
-  min-width: clamp(20vw, 40vw, 40vw);
-  min-height: 100%;
+  /* min-width: clamp(20vw, 40vw, 40vw); */
+  /* min-height: 100%; */
+  min-width: 100%;
+  flex-grow: 1;
+
   border: 1px solid var(--color-extra);
 }
 
@@ -188,7 +203,6 @@ h1 {
 }
 
 .certificate img {
-  /* no use temporarly */
   max-height: 40rem;
   width: auto;
 }
@@ -208,10 +222,6 @@ h1 {
   :root {
     font-size: 12px;
   }
-
-  .profile {
-    flex-direction: column;
-  }
 }
 
 /* default style for users with "reduced-motion" preference */
@@ -221,7 +231,7 @@ h1 {
     opacity: 0;
     animation: fade-in linear forwards;
     animation-timeline: view();
-    animation-range: 5vh 20vh;
+    animation-range: 20vh 25vh;
   }
 
   @keyframes fade-in {
