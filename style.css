@@ -139,6 +139,7 @@ h1 {
 
 .profile {
   width: 100%;
+  gap: 1rem;
   justify-content: space-around;
 
   img {
@@ -242,6 +243,10 @@ h1 {
 }
 
 @media only screen and (max-width: 768px) {
+  .profile {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 /* default style for users with "reduced-motion" preference */
