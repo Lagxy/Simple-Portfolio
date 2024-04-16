@@ -8,9 +8,9 @@
   </head>
   <body>
     <header>
-      <nav class="main-nav">
+      <nav class="main-nav || flx-row">
         <h1>Flexbox Enjoyer</h1>
-        <ul role="list">
+        <ul class="flx-row" role="list">
           <li><a href="">lorem</a></li>
           <li><a href="">lorem</a></li>
           <li><a href="">lorem</a></li>
@@ -18,21 +18,19 @@
       </nav>
     </header>
 
-    <main class="centerflx-col">
-      <section class="sections || profile">
-        <div class="centerflx-col || profile-child profile-card">
-          <img src="image/Lagxy-crop.jpg" alt="lexy" class="profile-picture" />
-          <p>Hello, i'm Lexy Samuel<br />Nice to meet you!</p>
-        </div>
-        <div class="centerflx-col || profile-child information">
-          <h2>Personal Information:</h2>
-          <div class="centerflx-col">
-            <h1>HIDDEN</h1>
-          </div>
+    <main class="flx-col">
+      <section class="profile || flx-row">
+        <img src="Assets/image/Lagxy-crop.jpg" alt="profile picture" />
+        <div class="brief">
+          <h1>Welcome!</h1>
+          <p>Feel free to stop by briefly.</p>
+          <p>"In the brevity of moments, lies the depth of connection."</p>
+          <br />
+          <p>mai nem is leksi.👍</p>
         </div>
       </section>
 
-      <section class="sections centerflx-col || endeavors">
+      <section class="endeavors || flx-col">
         <div class="wrapper">
           <h1>Latest Endeavors</h1>
           <div class="endeavors-list">
@@ -52,18 +50,56 @@
         </div>
       </section>
 
-      <section class="sections centerflx-col">
-        <h1>Certification</h1>
+      <section class="flx-col">
+        <h1>Certificate's</h1>
         <div class="certificate">
-          <img
-            src="image/Certificate_Fundamental-Front-End-Web_Lexy-Samuel-1.png"
-            alt="front-end certificate"
-          />
+          <img src="/Assets/image/Certificate_Fundamental-Front-End-Web_Lexy-Samuel-1.png" alt="front-end certificate" />
         </div>
       </section>
 
-      <footer class="centerflx-row || main-footer">
-        <h1>EMPTY FOOTER</h1>
+      <footer class="main-footer || flx-col">
+        <div class="footer-content || flx-row">
+          <div class="credit-list">
+            <div class="credit">
+              <h1>Site Credits</h1>
+              <h4>Web Development & Maintenance:</h4>
+              <p>Lexy Samuel</p>
+            </div>
+            <div class="credit">
+              <h4>Icon & Illustration:</h4>
+              <p>
+                Laisa Islam Ani on
+                <a href="https://www.flaticon.com/free-icons/instagram-logo">Flaticon</a>
+              </p>
+              <p>
+                Fathema Khanom on
+                <a href="https://www.flaticon.com/free-icons/line">Flaticon</a>
+              </p>
+              <p>
+                Pixel Perfect on
+                <a href="https://www.flaticon.com/free-icons/gmail">Flaticon</a>
+              </p>
+            </div>
+          </div>
+          <div class="contact">
+            <h1>Contact</h1>
+            <div class="social-media-list || flx-col">
+              <div class="social-media || flx-row">
+                <img src="/Assets/Icon/instagram(128px).png" alt="instagram icon" />
+                <p><b>Instagram: </b><a href="https://www.instagram.com/lex.njir?igsh=MTdramM5bWNsamJpYw==">@lex.njir</a></p>
+              </div>
+              <div class="social-media || flx-row">
+                <img src="/Assets/Icon/line(128px).png" alt="line icon" />
+                <p><b>Line ID: </b><a href="https://line.me/ti/p/X9TfSgAT9a">lexysamuel15</a></p>
+              </div>
+              <div class="social-media || flx-row">
+                <img src="/Assets/Icon/gmail(128px).png" alt="gmail icon" />
+                <p><b>Gmail: </b><a href="mailto:lexysamuel1507@gmail.com">lexysamuel1507@gmail.com</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="copyright">Copyright © 2024 Lagxy. All Rights Reserved.</p>
       </footer>
     </main>
   </body>

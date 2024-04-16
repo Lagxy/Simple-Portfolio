@@ -77,25 +77,22 @@ select {
   --color-extra: #f1f1f1;
 
   font-family: "Outfit";
+  font-size: clamp(10px, 2vw, 16px);
 }
 
 /* Utility Class */
 
-.sections {
-  display: flex;
-  flex-direction: column;
-  margin: 6rem 2rem 0;
-  padding: 2rem;
-  max-width: max(70vw, 1080px);
+section {
+  margin: 2rem 0;
 }
 
-.centerflx-row {
+.flx-row {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.centerflx-col {
+.flx-col {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -107,7 +104,8 @@ select {
 body {
   color: var(--color-extra);
   background: var(--color-secondary);
-  overflow-x: hidden;
+  scroll-behavior: smooth;
+  /* overflow-x: hidden; */
 }
 
 h1 {
@@ -116,112 +114,134 @@ h1 {
 }
 
 .main-nav {
-  display: flex;
   justify-content: space-between;
-  align-items: center;
   background: var(--color-primary);
   padding: 1rem 1.5rem;
-}
 
-.main-nav ul {
-  display: flex;
-  align-items: center;
-  justify-content: end;
-  gap: 2rem;
-}
+  ul {
+    justify-content: end;
+    gap: 2rem;
+  }
 
-.main-nav ul li a {
-  text-decoration: none;
-  color: inherit;
-  font-weight: 700;
-  font-size: 1.25rem;
-}
+  a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 700;
+    font-size: 1.25rem;
+    transition: opacity 0.3s ease;
+  }
 
-.main-nav ul li a:hover {
-  /* temporary */
-  opacity: 0.5;
-  transition: 0.3s;
+  a:hover {
+    /* temporary */
+    opacity: 0.5;
+  }
 }
 
 .profile {
-  border: 3px solid var(--color-extra);
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
+  width: 100%;
+  justify-content: space-around;
 
-.profile-child {
-  flex: 2;
-  flex-basis: 0;
-}
-
-.profile-card {
-  flex-direction: column;
-  flex-grow: 1;
-  gap: 1rem;
-  text-align: center;
-}
-
-.profile-picture {
-  /* max-width: clamp(10rem, 100%, 15rem); */
-  /* height: auto; */
-  min-width: 10rem;
-  border-radius: 50%;
+  img {
+    border-radius: 50%;
+    max-width: clamp(1rem, 30vw, 20rem);
+  }
 }
 
 .information {
   min-width: 15rem;
-}
 
-.information div {
-  /* temporary */
-  /* min-width: clamp(20vw, 40vw, 40vw); */
-  /* min-height: 100%; */
-  min-width: 100%;
-  flex-grow: 1;
+  div {
+    /* temporary */
+    /* min-width: clamp(20vw, 40vw, 40vw); */
+    /* min-height: 100%; */
+    min-width: 100%;
+    flex-grow: 1;
 
-  border: 1px solid var(--color-extra);
-}
+    border: 1px solid var(--color-extra);
+  }
 
-.information h1 {
-  /* temporary */
-  opacity: 0.2;
-  cursor: default;
+  h1 {
+    /* temporary */
+    opacity: 0.2;
+    cursor: default;
+  }
 }
 
 .endeavors {
-  min-width: 100vw;
-  max-width: 100%;
+  width: 100%;
   /* overflow-x: hidden; */
   color: var(--color-primary);
   background: var(--color-extra);
+
+  * {
+    opacity: 1;
+    scale: 1;
+  }
 }
 
-.endeavors * {
-  opacity: 1;
-  scale: 1;
-}
-
-.certificate img {
-  max-height: 40rem;
-  width: auto;
+.certificate {
+  img {
+    max-width: min(80vw, 40rem);
+  }
 }
 
 .main-footer {
-  height: 10rem; /*temporary*/
   width: 100%;
   background: var(--color-primary);
-}
+  justify-content: space-between;
 
-.main-footer h1 {
-  /* temporary */
-  opacity: 0.2;
+  h1 {
+    margin-bottom: 0.75rem;
+    opacity: 0.8;
+  }
+
+  .footer-content {
+    width: 100%;
+    padding: 1rem clamp(1rem, 3vw, 2.5rem);
+    justify-content: space-between;
+
+    a {
+      color: inherit;
+    }
+
+    a:hover {
+      color: #4220ee;
+    }
+
+    .credit {
+      h4 {
+        font-weight: 600;
+      }
+
+      p {
+        font-weight: 100;
+      }
+    }
+
+    .contact {
+      img {
+        width: 2rem;
+      }
+
+      .social-media-list {
+        align-items: start;
+        gap: 0.5rem;
+
+        .social-media {
+          gap: 0.75rem;
+        }
+      }
+    }
+  }
+
+  .copyright {
+    width: 100%;
+    text-align: center;
+    border-top: 0.5px solid var(--color-extra);
+  }
 }
 
 @media only screen and (max-width: 768px) {
-  :root {
-    font-size: 12px;
-  }
 }
 
 /* default style for users with "reduced-motion" preference */
@@ -231,7 +251,7 @@ h1 {
     opacity: 0;
     animation: fade-in linear forwards;
     animation-timeline: view();
-    animation-range: 20vh 25vh;
+    animation-range: 20vh 30vh;
   }
 
   @keyframes fade-in {
