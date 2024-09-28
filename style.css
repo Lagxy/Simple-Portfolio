@@ -65,30 +65,37 @@ select {
 }
 
 /* Preset */
-
 @font-face {
   font-family: "Outfit";
   src: url(Assets/Fonts/Outfit/static/Outfit-Regular.ttf);
 }
 
+@font-face {
+  font-family: "Oswald";
+  src: url(Assets/Fonts/Oswald/static/Oswald-Bold.ttf);
+}
+
 :root {
+  --font-size-global: clamp(14px, 1.5vw, 18px);
+
   --color-primary-blue: #192841;
   --color-secondary-blue: #1c2e4a;
-
   --color-primary-white: #f1f1f1;
-
   --color-primary-black: #050505;
-
-  font-family: "Outfit";
-  font-size: clamp(10px, 2vw, 16px);
 }
+
+body {
+  font-family: "Outfit";
+  font-size: var(--font-size-global);
+  scroll-behavior: smooth;
+  text-wrap: pretty;
+}
+
+/* section {
+  padding: 2rem 0;
+} */
 
 /* Utility Class */
-
-section {
-  margin: 2rem 0;
-}
-
 .flx-row {
   display: flex;
   justify-content: center;
@@ -107,17 +114,16 @@ section {
 }
 
 /* General Styling */
-
 body {
   color: var(--color-primary-white);
   background: var(--color-secondary-blue);
-  scroll-behavior: smooth;
   /* overflow-x: hidden; */
 }
 
 h1 {
+  font-size: calc(var(--font-size-global) + 0.75rem) !important;
+  font-family: "Oswald";
   font-weight: 700;
-  font-size: 1.5rem;
 }
 
 .main-nav {
@@ -136,7 +142,6 @@ h1 {
     text-decoration: none;
     color: inherit;
     font-weight: 700;
-    font-size: 1.25rem;
     transition: opacity 0.3s ease;
   }
 
@@ -203,9 +208,15 @@ h1 {
 }
 
 .profile {
+  /* min-height: 75vh; */
   width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-content: center;
+  place-items: center;
+
+  padding: 2rem;
   gap: 1rem;
-  justify-content: space-around;
 
   img {
     border: 4px outset var(--color-primary-white);
@@ -213,6 +224,11 @@ h1 {
     max-width: clamp(1rem, 30vw, 20rem);
 
     box-shadow: 0.5rem 0.75rem 0 var(--color-primary-blue);
+  }
+
+  span {
+    border-right: 0.05em solid;
+    animation: caret 1s steps(1) infinite;
   }
 
   .brief {
@@ -227,9 +243,10 @@ h1 {
   }
 }
 
-.endeavors {
+.about {
   width: 100%;
-  /* overflow-x: hidden; */
+  justify-content: space-evenly;
+  /* gap: 1rem; */
   color: var(--color-primary-blue);
   background: var(--color-primary-white);
 
@@ -237,11 +254,57 @@ h1 {
     opacity: 1;
     scale: 1;
   }
+
+  .about-card {
+    min-height: 80vh;
+    /* height: clamp(1px, 80vh, 30rem); */
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+
+    .card-image {
+      height: 100%;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
 }
 
+.hardskill {
+  background: url("Assets/image/altumcode-PNbDkQ2DDgM-unsplash.jpg");
+}
+
+.softskill {
+  background: url("Assets/image/annie-spratt-QckxruozjRg-unsplash.jpg");
+}
+
+.card-content {
+  width: 100%;
+  padding: 1.25rem;
+  justify-content: space-evenly;
+  gap: 1rem;
+
+  .content {
+    width: 100%;
+    align-items: start;
+    justify-content: space-evenly;
+    gap: 1rem;
+  }
+}
+
+/* temporary */
 .certificate {
-  img {
-    max-width: min(80vw, 40rem);
+  padding: 2rem 0;
+
+  .certificate-list {
+    gap: 2rem;
+
+    img {
+      max-width: min(80vw, 40rem);
+    }
   }
 }
 
@@ -288,7 +351,7 @@ h1 {
         gap: 0.5rem;
 
         .social-media {
-          gap: 0.75rem;
+          gap: 0.5rem;
         }
       }
     }
@@ -303,7 +366,7 @@ h1 {
 
 @media only screen and (max-width: 768px), (orientation: portrait) {
   .desktop-nav {
-    width: 1.25rem; /*just to match the hamburger button*/
+    width: 1.25rem; /*match the hamburger button*/
 
     li {
       display: none;
@@ -315,25 +378,36 @@ h1 {
   }
 
   .profile {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     text-align: center;
+  }
+
+  .content {
+    width: fit-content !important;
+    flex-direction: column;
   }
 }
 
 /* default style for users with "reduced-motion" preference */
 @media (prefers-reduced-motion: no-preference) {
-  .endeavors * {
-    scale: 0.8;
+  .about-card *:not(.card-image) {
+    scale: 0.7;
     opacity: 0;
     animation: fade-in linear forwards;
     animation-timeline: view();
-    animation-range: 20vh 30vh;
+    animation-range: 25vh 35vh;
   }
 
   @keyframes fade-in {
     to {
       scale: 1;
       opacity: 1;
+    }
+  }
+
+  @keyframes caret {
+    50% {
+      border-color: transparent;
     }
   }
 }
