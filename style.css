@@ -76,7 +76,7 @@ select {
 }
 
 :root {
-  --font-size-global: clamp(16px, 1.5vw, 20px);
+  --font-size-global: clamp(14px, 1.5vw, 20px);
 
   --color-primary-black: #000000;
   --color-secondary-black: #050505;
@@ -123,7 +123,7 @@ body {
 }
 
 h1 {
-  font-size: calc(var(--font-size-global) + 0.75rem) !important;
+  font-size: calc(var(--font-size-global) + 0.5rem) !important;
   font-family: "Oswald";
   font-weight: 700;
 }
@@ -336,6 +336,7 @@ h1 {
     width: 100%;
     padding: 1rem clamp(1rem, 3vw, 2.5rem);
     justify-content: space-between;
+    gap: 1rem;
 
     a {
       color: inherit;
@@ -400,6 +401,11 @@ h1 {
     width: fit-content !important;
     flex-direction: column;
   }
+
+  .footer-content {
+    text-align: center;
+    flex-direction: column;
+  }
 }
 
 /* default style for users with "reduced-motion" preference */
@@ -416,7 +422,7 @@ h1 {
     opacity: 0;
     animation: fade-in linear forwards;
     animation-timeline: view();
-    animation-range: 25vh 35vh;
+    animation-range: 20vh 30vh;
   }
 
   @keyframes bg-swap {
